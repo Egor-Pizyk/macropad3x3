@@ -8,14 +8,37 @@
 };
 
 / {
+    macros {
+        text_one: text_one {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&macro_tap
+                &kp LS(T) &kp H &kp E &kp LS(E) &kp G &kp A
+                &kp N3 &kp N5 &kp N7 &kp N1 &kp N5 &kp N9
+                &kp EXCL &kp EXCL &kp EXCL>;
+        };
+
+        text_two: text_two {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&macro_tap
+                &kp N7 &kp RBRC &kp QMARK &kp LS(S) &kp LS(Q) &kp LT
+                &kp N8 &kp N8 &kp M &kp E &kp LS(J) &kp X>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp N1  &kp N2  &kp N3
+                &kp F16 &kp F18 &kp F19
                 &kp N4  &kp N5  &kp N6
-                &kp N7  &kp N8  &mo 1
+                &text_one &text_two &mo 1
             >;
         };
 
