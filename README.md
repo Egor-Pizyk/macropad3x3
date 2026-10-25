@@ -64,11 +64,27 @@ Bluetooth and in System Settings → Bluetooth.
 3. Press `Fn` + `BOOT` (or double-tap reset on the nice!nano) — the `NICENANO` drive appears.
 4. Copy `macropad-nice_nano_v2-zmk.uf2` onto it. The board reboots on its own.
 
+## Edit in Keymap Editor
+
+Open [Keymap Editor](https://nickcoutsos.github.io/keymap-editor/), connect GitHub,
+and select this repository and the branch containing these files. The editor
+loads `config/macropad.keymap` and uses `config/macropad.json` to display the
+3×3 grid, ordered left to right and top to bottom.
+
+Save changes back to GitHub, then download the firmware from the resulting
+Actions run and flash it as described above. The editor changes the keymap;
+GitHub Actions still builds the firmware.
+
+Keep the editable keymap in `config/`: a keymap stored only under
+`boards/shields/` is not discovered by the editor. ZMK uses
+`config/macropad.keymap` for the `macropad` shield with the existing build setup.
+
 ## Files
 
 | File | What |
 |------|------|
-| `boards/shields/macropad/macropad.keymap` | Layers and keys |
+| `config/macropad.keymap` | Layers and keys |
+| `config/macropad.json` | 3×3 visual layout for Keymap Editor |
 | `boards/shields/macropad/macropad.overlay` | Matrix pins |
 | `boards/shields/macropad/Kconfig.defconfig` | Bluetooth name (`Macropad3x3`) |
 | `config/macropad.conf` | Sleep, soft off, battery reporting |
